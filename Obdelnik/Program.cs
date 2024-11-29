@@ -1,40 +1,14 @@
-namespace MyApp{
+using System;
 
-    class Program
-    {
-        static void Main(string[] args)
-  {
-    Car Ford = new Car();  // Create an object of the Car Class (this will call the constructor)
+namespace Program {
+    public class Program {
+        public static void Main(string[] args) {
+            Knihovna.AddBook(new Kniha("Pekna kniha", "Andrej Maly", 2009));
+            Knihovna.AddBook(new EKniha("Prvni ekniha", "Jaroslav Velky", 2001, 850.3d, "pdf"));
 
-    Car Skoda = new Car("Karoq", "nafta");
-
-    Console.WriteLine(Ford.model);  // Print the value of model
-     Console.WriteLine(Skoda.model + " " + Skoda.palivo);
+            Kniha[] books = Knihovna.GetBooks();
+            foreach (Kniha k in books)
+                k.PrintData();
+        }
     }
-    }
-    
-    class Car
-{
-  public string model;  // Create a field
-  public string palivo;
-
-  // Create a class constructor for the Car class
-  public Car()
-  {
-    model = "Mustang"; // Set the initial value for model
-  }
-
-  public Car(string model_par)
-  {
-    this.model = model_par; // Set the initial value for model
-  }
-    public Car(string model, string palivo)
-  {
-    this.model = model; // Set the initial value for model
-    this.palivo = palivo;
-  }
-  
 }
-
-}
-
